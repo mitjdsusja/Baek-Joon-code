@@ -4,57 +4,71 @@
 #include <math.h>
 #define SIZE 100000
 
-
 int main() {
-	int test, N, s1[SIZE], s2[SIZE];
-	int temp = 0;
-	int count = 0;
+	int room;
+	int empty = 0;
+	int n[10] = { 0 };
+	int plus = 0;
 	int result = 0;
-	int L = 1;
 
 
-	scanf("%d", &test);
-	for (int i = 0; i < test; i++) {
-		L = 1;
-		result = 1;
+	scanf("%d", &room);
+	for (;;) {
+		empty = room % 10;
+		switch (empty) {
+			case 1: {
+				n[1]++;
+				break;
+			}
+			case 2: {
+				n[2]++;
+				break;
+			}
+			case 3: {
+				n[3]++;
+				break;
+			}
+			case 4: {
+				n[4]++;
+				break;
+			}
+			case 5: {
+				n[5]++;
+				break;
+			}
+			case 6: {
+				n[6]++;
+				break;
+			}
 
-		scanf("%d", &N);
-		for (int j = 0; j < N; j++) {
-			scanf("%d %d", &s1[j], &s2[j]);
-		}
-
-	
-		for (int j = 0; j < N; j++) {//정렬 시간초과
-			for (int k = 0; k < N - 1 - j; k++) {
-				if (s1[k] > s1[k + 1]) {
-					temp = s1[k];
-					s1[k] = s1[k + 1];
-					s1[k + 1] = temp;
-					temp = s2[k];
-					s2[k] = s2[k + 1];
-					s2[k + 1] = temp;
-				}
+			case 7: {
+				n[7]++;
+				break;
+			}
+			case 8: {
+				n[8]++;
+				break;
+			}
+			case 9: {
+				n[9]++;
+				break;
+			}
+			case 0: {
+				n[0]++;
+				break;
 			}
 		}
-
-
-		printf("-------\n");
-		for (int j = 0; j < N; j++) {
-			printf("%d %d", s1[j], s2[j]);
-			printf("\n");
-		}
-		printf("-------\n");
-		//	
-		count = N-1;
-		for (int j = 0; j < N - 1; j++) {
-			if (s2[count] == L) {
-				result++;
-				L++;
-				
-			}
-			count--;
-		}
-		printf("%d", result);
+		room = room / 10;
+		if (room == 0)break;
 	}
+	plus = (n[6] + n[9]) % 2;
+	n[6] = (n[6] + n[9]) / 2;
+	if (plus == 1)n[6]++;
 
+	for (int i = 0; i < 9; i++) {
+		if (result < n[i]) {
+			result = n[i];
+		}
+	}
+	printf("%d", result);
 }
