@@ -9,11 +9,11 @@ int main() {
 
 	scanf("%lld %lld", &N, &M);
 
-	if (N == 1) {// 세로 1일때 
+	if (N == 1) {
 		printf("1");
 	}
 
-	if (N == 2) {// 세로 2일때 
+	if (N == 2) {
 		if (M < 3) {
 			printf("1");
 		}
@@ -24,7 +24,7 @@ int main() {
 			printf("%d", 3);
 		}
 	}
-	if (N >= 3 ) {//세로 3이상인경우
+	if (N >= 3 ) {
 		if (M < 5) {
 			printf("%lld", M);
 		}
