@@ -70,6 +70,7 @@ int main() {
 		count++;
 		
 	}
+	
 	printf("%d", result);
 	
 }
