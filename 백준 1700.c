@@ -53,7 +53,6 @@ int main() {
 					r_last = last;
 					last_plug = j;
 					
-					printf("lastplug %d", r_last);
 				}
 				last = 0;
 			}
@@ -69,21 +68,7 @@ int main() {
 			r_last = -1;
 		}
 		count++;
-
-		printf("--------------\n");
-		printf("plug [ %d %d %d ]", plug[0], plug[1], plug[2]);
-		printf("\nplugin [ ");
-		for (int j = 0; j < K; j++) {
-			printf("%d ", j + 1);
-		}
-		printf(" ]\n");
-		printf("plugin [ ");
-		for (int j = 0; j < K; j++) {
-			printf("%d ",isPlugin[j]);
-		}
-		printf(" ]\n");
-		printf("----------------i=%d \n ",i);
-
+		
 	}
 	printf("%d", result);
 	
