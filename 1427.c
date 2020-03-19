@@ -4,6 +4,7 @@
 #include <math.h>
 #define SIZE 1000
 
+
 int main() {
 	char array[SIZE] = { 0 };
 	int len = 0;
