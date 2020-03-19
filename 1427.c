@@ -5,21 +5,26 @@
 #define SIZE 1000
 
 int main() {
-	char array[SIZE] = { 0 };
-	int len = 0;
+	int N;
 	int temp;
+	int array[SIZE] = { 0 };
 
-	gets(array);
-	len = strlen(array);
-
-	for (int i = 0; i < len; i++) {
-		for (int j = 0; j < len - 1 - i; j++) {
-			if (array[j] < array[j + 1]) {
+	scanf("%d", &N);
+	for (int i = 0; i < N; i++) {
+		scanf("%d", &array[i]);
+	}
+	if (N == 1) {
+		printf("%d", array[0] * array[0]);
+		return 0;
+	}
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N - 1 - i; j++) {
+			if (array[j] > array[j + 1]) {
 				temp = array[j];
 				array[j] = array[j + 1];
 				array[j + 1] = temp;
 			}
 		}
 	}
-	puts(array);
+	printf("%d", array[0] * array[N - 1]);
 }
