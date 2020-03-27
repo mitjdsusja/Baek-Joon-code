@@ -6,30 +6,39 @@
 
 
 int main() {
-	int T;
-	int N;
-	int array[SIZE] = { 0 };
+	int x, y, z;
+	int a[3];
+	int max=0;
 	int sum=0;
-	int avg;
-	int avgOver=0;
 
-	scanf("%d", &T);
-	for (int i = 0; i < T; i++) {
-		scanf("%d", &N);
-		for (int j = 0; j < N; j++) {
-			scanf("%d", &array[j]);
-			sum += array[j];
-		}
-		avg = sum / N;
-
-		for (int j = 0; j < N; j++) {
-			if (array[j] > avg) {
-				avgOver++;
+	for (;;) {
+		scanf("%d %d %d", &a[0], &a[1], &a[2]);
+		for (int i = 0; i < 3; i++) {
+			if (a[i] == 0) {
+				return 0;
 			}
 		}
-		printf("%.3lf%%\n", (double)avgOver / N*100);
-		avgOver = 0;
-		avg = 0;
+		for (int i = 0; i < 3; i++) {
+			if (max < a[i]) {
+				max = a[i];
+			}
+		}
+		for (int i = 0; i < 3; i++) {
+			a[i]=pow(a[i], 2);
+		}
+		max = pow(max, 2);
+
+		for (int i = 0; i < 3; i++) {
+			if (max != a[i]) {
+				sum += a[i];
+			}
+		}
+		if (max == sum) {
+			printf("right");
+		}
+		else {
+			printf("wrong");
+		}
 		sum = 0;
 	}
 }
